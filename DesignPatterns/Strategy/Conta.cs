@@ -30,6 +30,9 @@
     }
     public class Conta
     {
+        public string Agencia { get; private set; }
+        public string Numero { get; private set; }
+
         public double SaldoInvestimento { get; private set; }
 
         public Conta(double saldoInvestimento)

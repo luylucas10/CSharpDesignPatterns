@@ -32,22 +32,4 @@
             return orcamento.Valor * 0.08 + 30;
         }
     }
-
-    public class Orcamento
-    {
-        public double Valor { get; private set; }
-
-        public Orcamento(double valor)
-        {
-            Valor = valor;
-        }
-    }
-
-    public class CalculadorImposto
-    {
-        public void RealizaCalculo(Orcamento orcamento, IImposto imposto)
-        {
-            Console.WriteLine(imposto.Calcular(orcamento));
-        }
-    }
 }
