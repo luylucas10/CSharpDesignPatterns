@@ -1,5 +1,6 @@
 ﻿using DesignPatterns;
 
+//double desconto;
 // padrão Strategy: separar o comportamento comum e usar a abstração;
 //var calculadora = new CalculadorImposto();
 //calculadora.RealizaCalculo(new Orcamento(500), new Icms());
@@ -15,7 +16,7 @@
 
 // padrão Chain of Responsability: faz o ligamento entre estratégias equivalentes (como uma corrente de desconto);
 
-var calculadora = new CalculadoraDesconto();
+//var calculadora = new CalculadoraDesconto();
 var orcamento = new Orcamento(500);
 orcamento.AdicionarItem(new Item("Caneta", 500));
 orcamento.AdicionarItem(new Item("Lápis", 500));
@@ -24,8 +25,12 @@ orcamento.AdicionarItem(new Item("Guarda-Chuva", 500));
 orcamento.AdicionarItem(new Item("Teclado", 500));
 orcamento.AdicionarItem(new Item("Violão", 500));
 
-var desconto = calculadora.Calcula(orcamento);
-Console.WriteLine(desconto);
+//desconto = calculadora.Calcula(orcamento);
+
+var calculadora = new CalculadoraImposto();
+calculadora.Calcular(orcamento, new Icpp());
+calculadora.Calcular(orcamento, new Ickv());
+//Console.WriteLine(desconto);
 
 
 Console.ReadKey();
