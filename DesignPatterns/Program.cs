@@ -1,6 +1,4 @@
-﻿using DesignPatterns;
-
-//double desconto;
+﻿//double desconto;
 // padrão Strategy: separar o comportamento comum e usar a abstração;
 //var calculadora = new CalculadorImposto();
 //calculadora.RealizaCalculo(new Orcamento(500), new Icms());
@@ -47,10 +45,23 @@
 //reforma.AplicaDescontoExtra(); //lancaria excecao, pois não pode dar desconto nesse estado
 //reforma.Aprova();// lança exceção, pois não pode ir para aprovado
 
-Conta c = new Conta("Luy", 300);
-Console.WriteLine(c.Saldo);
-Console.WriteLine(c.Sacar(400));
-Console.WriteLine(c.Saldo);
-c.Depositar(500);
-Console.WriteLine(c.Saldo);
+//Conta c = new Conta("Luy", 300);
+//Console.WriteLine(c.Saldo);
+//Console.WriteLine(c.Sacar(400));
+//Console.WriteLine(c.Saldo);
+//c.Depositar(500);
+//Console.WriteLine(c.Saldo);
+
+using DesignPatterns;
+
+var notaBuilder = new CriadorNota();
+var nota = notaBuilder
+	.ParaEmpresa("Empresa")
+	.ComItem(new CriadorItem()
+		.ComNome("Caneta")
+		.ComValor(5.00)
+		.Construir())
+	.Nova(new EnviarEmail())
+	.Nova(new Multiplicador(5))
+	.Contruir();
 Console.ReadKey();
